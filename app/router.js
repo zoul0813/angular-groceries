@@ -7,12 +7,12 @@ app.config(['$routeProvider', function($routeProvider) {
     controller: 'groceryController',
     action: 'list',
   })
-  .when('/todo/new', {
+  .when('/new', {
     templateUrl: 'views/new.html',
     controller: 'groceryController',
     action: 'add',
   })
-  .when('/todo/:entityId', {
+  .when('/view/:entityId', {
     templateUrl: 'views/view.html',
     controller: 'groceryController',
     action: 'view',

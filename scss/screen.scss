@@ -4,3 +4,18 @@
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
 @import "compass/reset";
+
+body {
+  font-family: source-sans-pro, sans-serif;
+}
+
+.topcoat-list {
+  .topcoat-list__item {
+    cursor: pointer;
+    
+    .edit-bar {
+      float: right;
+    }
+    
+  }
+}

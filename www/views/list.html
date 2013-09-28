@@ -1,5 +1,35 @@
 <div class="topcoat-navigation-bar">
-  <div class="topcoat-navigation-bar__item center full" ng-view="ng-view">
+  <div class="topcoat-navigation-bar__item center full">
     <h1 class="topcoat-navigation-bar__title">List</h1>
   </div>
 </div>
+<div class="topcoat-list">
+  <ul class="topcoat-list__container">
+    <li class="topcoat-list__item">
+      <form ng-submit="new_grocery = save(new_grocery)">
+        <input type="text" class="topcoat-text-input" placeholder="Grocery..." ng-model="new_grocery" />
+        <button class="topcoat-button">Save</button>
+      </form>
+    </li>
+    <li class="topcoat-list__item" ng-repeat="grocery in groceries" ng-init="isEdit=false" ng-model="isEdit" ng-click="isEdit=!isEdit" ng-swipe-left="isEdit=!isEdit">
+      <label class="topcoat-checkbox">
+        <input type="checkbox" ng-model="grocery.checked" ng-change="update(grocery)" />
+        <div class="topcoat-checkbox__checkmark"></div>
+      </label>
+      {{grocery.title}}
+      
+      <div ng-show="isEdit" class="edit-bar">
+        <div class="topcoat-button-bar">
+          <div class="topcoat-button-bar__item">
+            <button class="topcoat-button-bar__button" ng-click="remove(grocery)">Delete</button>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<pre ng-show="DEBUG">
+new_grocery = {{new_grocery|json}};
+groceries = {{groceries|json}};
+</pre>
