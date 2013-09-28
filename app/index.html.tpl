@@ -24,16 +24,9 @@
     <script src="js/angular/angular-cookies.min.js"></script>
     <script src="js/angular-local-storage/angular-local-storage.js"></script>
     
-    
-      <!-- {"src":["app/app.js"],"dest":"../app/app.js"} -->
-      <script type="text/javascript" src="../app/app.js"></script>      
-    
-      <!-- {"src":["app/grocery/groceryController.js"],"dest":"../app/grocery/groceryController.js"} -->
-      <script type="text/javascript" src="../app/grocery/groceryController.js"></script>      
-    
-      <!-- {"src":["app/router.js"],"dest":"../app/router.js"} -->
-      <script type="text/javascript" src="../app/router.js"></script>      
-    
+    <% _.each(prod_scripts, function(script) { %>
+      <script type="text/javascript" src="<%=script.dest%>"></script>      
+    <% }); %>
     <script type="text/javascript">
       pgApp.initialize();
     </script>

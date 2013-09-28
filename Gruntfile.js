@@ -65,6 +65,22 @@ module.exports = function(grunt) {
         src: 'Gruntfile.js'
       },
     },
+    template: {
+      dist: {
+        options: {
+          data: {
+            prod_scripts: [{dest:'<%=uglify.dist.dest.replace("www/","") %>'}],
+            qa_scripts: [{dest:'<%=concat.dist.dest.replace("www/","")%>'}],
+            dev_scripts: grunt.file.expandMapping('app/**/*.js', '..', { filter: 'isFile', }),
+          },
+        },
+        files: {
+          'www/index.html' : ['app/index.html.tpl'],
+          'www/index-qa.html': ['app/index-qa.html.tpl'],
+          'www/index-dev.html': ['app/index-dev.html.tpl'],
+        }
+      }
+    },
     watch: {
       gruntfile: {
         files: '<%= jshint.gruntfile.src %>',
@@ -83,9 +99,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-template');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task.
-  grunt.registerTask('default', ['compass', 'copy', 'jshint', 'concat', 'uglify']);
+  grunt.registerTask('default', ['compass', 'copy', 'jshint', 'concat', 'uglify', 'template']);
 
 };
