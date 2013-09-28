@@ -18,6 +18,14 @@ module.exports = function(grunt) {
         }
       }
     },
+    copy: {
+      dist: {
+        files: [
+          {expand: true, flatten: true, src:['libs/angular/build/*.js'], dest: 'www/js/angular/', },
+          {src:'libs/angular-local-storage/angular-local-storage.js', dest: 'www/js/angular-local-storage/angular-local-storage.js', filter: 'isFile'},
+        ],
+      }
+    },
     concat: {
       options: {
         banner: '<%= banner %>',
@@ -25,7 +33,7 @@ module.exports = function(grunt) {
       },
       dist: {
         src: ['app/**/*.js'],
-        dest: 'www/<%= pkg.name %>.js'
+        dest: 'www/js/<%= pkg.name %>.js'
       }
     },
     uglify: {
@@ -34,7 +42,7 @@ module.exports = function(grunt) {
       },
       dist: {
         src: '<%= concat.dist.dest %>',
-        dest: 'www/<%= pkg.name %>.min.js'
+        dest: 'www/js/<%= pkg.name %>.min.js'
       }
     },
     jshint: {
@@ -71,12 +79,13 @@ module.exports = function(grunt) {
 
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task.
-  grunt.registerTask('default', ['compass', 'jshint', 'concat', 'uglify']);
+  grunt.registerTask('default', ['compass', 'copy', 'jshint', 'concat', 'uglify']);
 
 };
