@@ -1,0 +1,34 @@
+{
+  "name": "Groceries",
+  "version": "0.0.1",
+  "description": "A Grocery List Web App",
+  "main": "www/app/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zoul0813/angular-groceries.git"
+  },
+  "keywords": [
+    "angular",
+    "topcoat",
+    "phonegap",
+    "cordova",
+    "node",
+    "grunt"
+  ],
+  "author": "David Higgins <higginsd@zoulcreations.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zoul0813/angular-groceries/issues"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.6.3",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-watch": "~0.5.3"
+  }
+}
