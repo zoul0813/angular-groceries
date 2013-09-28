@@ -66,3 +66,17 @@ a img {
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
+
+/* line 8, ../../scss/screen.scss */
+body {
+  font-family: source-sans-pro, sans-serif;
+}
+
+/* line 13, ../../scss/screen.scss */
+.topcoat-list .topcoat-list__item {
+  cursor: pointer;
+}
+/* line 16, ../../scss/screen.scss */
+.topcoat-list .topcoat-list__item .edit-bar {
+  float: right;
+}

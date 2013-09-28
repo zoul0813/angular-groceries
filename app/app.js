@@ -21,11 +21,11 @@ var pgApp = {
    * function, we must explicity call 'app.receivedEvent(...);'
    */
   onDeviceReady: function() {
-    angular.bootstrap(document, ['SampleApp']);
+    angular.bootstrap(document, ['Grocery']);
   },  
 }
 
-app = angular.module('SampleApp', ['LocalStorageModule', 'ngMobile', ]);
+app = angular.module('Grocery', ['LocalStorageModule', 'ngMobile', ]);
 
 /** The main angular config object */
 app.config(function ($compileProvider){
