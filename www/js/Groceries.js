@@ -161,6 +161,10 @@ app.controller('groceryController', function($scope, $route, $routeParams, local
   render(); // always call render!!!
   return publicMethods;
 });
+var Grocery = function(title) {
+  this.title = title;
+  this.checked = false;
+}
 app.config(['$routeProvider', function($routeProvider) {
   console.log('router.config()');
   $routeProvider

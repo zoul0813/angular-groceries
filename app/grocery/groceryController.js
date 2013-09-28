@@ -67,10 +67,7 @@ app.controller('groceryController', function($scope, $route, $routeParams, local
      */
     save: function(title) {
       console.log('groceryController.list().save()', title);
-      var grocery = {
-        title: title,
-        checked: false,
-      };
+      var grocery = new Grocery(title);
       localStorageService.set(title, grocery);
       $scope.groceries.push(grocery);
       $scope.groceries = privateMethods.getGroceries();
