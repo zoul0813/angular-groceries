@@ -3,6 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <link rel="apple-touch-icon" href="res/icon/ios/icon-57-2x.png" />
+  <link rel="apple-touch-startup-image" href="res/splash/ios/screen-iphone-portrait.png" />
 
   <link rel="stylesheet" href="css/topcoat-desktop-dark.css" type="text/css" media="screen" title="no title" charset="utf-8">
   <link rel="stylesheet" href="css/topcoat-mobile-dark.css" type="text/css" media="screen" title="no title" charset="utf-8">
@@ -37,6 +40,18 @@
       <script type="text/javascript" src="../app/router.js"></script>      
     
     <script type="text/javascript">
+      if('applicationCache' in window) {
+        window.addEventListener('load', function(e) {
+          window.applicationCache.addEventListener('updateready', function(e) {
+            if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+              window.applicationCache.swapCache();
+              if (confirm('A new version of this site is available. Load it?')) {
+                window.location.reload();
+              }
+            }
+          }, false);
+        }, false);
+      });
       pgApp.initialize();
     </script>
 </body>
