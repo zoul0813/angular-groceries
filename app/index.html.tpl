@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html manifest="cache.manifest">
 <head>
   <meta charset="utf-8" />
-  <meta name="format-detection" content="telephone=no" />
   <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <link rel="apple-touch-icon" href="res/icon/ios/icon-57-2x.png" />
+  <link rel="apple-touch-startup-image" href="res/splash/ios/screen-iphone-portrait.png" />
+
 
   <link rel="stylesheet" href="css/topcoat-desktop-dark.css" type="text/css" media="screen" title="no title" charset="utf-8">
   <link rel="stylesheet" href="css/topcoat-mobile-dark.css" type="text/css" media="screen" title="no title" charset="utf-8">

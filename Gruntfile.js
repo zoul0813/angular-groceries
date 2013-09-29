@@ -79,6 +79,7 @@ module.exports = function(grunt) {
           'www/index.html' : ['app/index.html.tpl'],
           'www/index-qa.html': ['app/index-qa.html.tpl'],
           'www/index-dev.html': ['app/index-dev.html.tpl'],
+          'www/cache.manifest': ['app/cache.manifest.tpl'],
         }
       }
     },
