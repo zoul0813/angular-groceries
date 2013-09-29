@@ -1,12 +1,15 @@
 CACHE MANIFEST
-# <%= grunt.template.today("yyyy-MM-dd") %>
+# <%= grunt.template.today("yyyy-mm-dd hh:MM:ss") %>
 
 CACHE:
 index.html
+views/list.html
+views/view.html
+views/new.html
 js/Groceries.min.js
 js/angular/angular.min.js
-js/angular-cookies.min.js
-js/angular-mobile.min.js
+js/angular/angular-cookies.min.js
+js/angular/angular-mobile.min.js
 js/angular-local-storage/angular-local-storage.js
 css/screen.css
 css/topcoat-desktop-dark.min.css

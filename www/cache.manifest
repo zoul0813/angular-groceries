@@ -1,12 +1,15 @@
 CACHE MANIFEST
-# 2013-10-28
+# 2013-09-28 08:26:06
 
 CACHE:
 index.html
+views/list.html
+views/view.html
+views/new.html
 js/Groceries.min.js
 js/angular/angular.min.js
-js/angular-cookies.min.js
-js/angular-mobile.min.js
+js/angular/angular-cookies.min.js
+js/angular/angular-mobile.min.js
 js/angular-local-storage/angular-local-storage.js
 css/screen.css
 css/topcoat-desktop-dark.min.css
