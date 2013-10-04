@@ -1,6 +1,6 @@
 {
   "name": "Groceries",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A Grocery List Web App",
   "main": "www/app/app.js",
   "scripts": {
