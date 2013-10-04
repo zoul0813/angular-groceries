@@ -44,3 +44,6 @@ img/search_dark.svg
 img/search_light.svg
 img/spinner.png
 img/spinner2x.png
+
+NETWORK:
+*
