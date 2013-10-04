@@ -18,6 +18,14 @@ module.exports = function(grunt) {
         }
       }
     },
+    copy: {
+      dist: {
+        files: [
+          {expand: true, flatten: true, src:['libs/angular/build/*.js'], dest: 'www/js/angular/', },
+          {src:'libs/angular-local-storage/angular-local-storage.js', dest: 'www/js/angular-local-storage/angular-local-storage.js', filter: 'isFile'},
+        ],
+      }
+    },
     concat: {
       options: {
         banner: '<%= banner %>',
@@ -25,16 +33,17 @@ module.exports = function(grunt) {
       },
       dist: {
         src: ['app/**/*.js'],
-        dest: 'www/<%= pkg.name %>.js'
+        dest: 'www/js/<%= pkg.name %>.js'
       }
     },
     uglify: {
       options: {
-        banner: '<%= banner %>'
+        banner: '<%= banner %>',
+        mangle: false,
       },
       dist: {
         src: '<%= concat.dist.dest %>',
-        dest: 'www/<%= pkg.name %>.min.js'
+        dest: 'www/js/<%= pkg.name %>.min.js'
       }
     },
     jshint: {
@@ -57,6 +66,23 @@ module.exports = function(grunt) {
         src: 'Gruntfile.js'
       },
     },
+    template: {
+      dist: {
+        options: {
+          data: {
+            prod_scripts: [{dest:'<%=uglify.dist.dest.replace("www/","") %>'}],
+            qa_scripts: [{dest:'<%=concat.dist.dest.replace("www/","")%>'}],
+            dev_scripts: grunt.file.expandMapping('app/**/*.js', '..', { filter: 'isFile', }),
+          },
+        },
+        files: {
+          'www/index.html' : ['app/index.html.tpl'],
+          'www/index-qa.html': ['app/index-qa.html.tpl'],
+          'www/index-dev.html': ['app/index-dev.html.tpl'],
+          'www/cache.manifest': ['app/cache.manifest.tpl'],
+        }
+      }
+    },
     watch: {
       gruntfile: {
         files: '<%= jshint.gruntfile.src %>',
@@ -71,12 +97,14 @@ module.exports = function(grunt) {
 
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-template');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task.
-  grunt.registerTask('default', ['compass', 'jshint', 'concat', 'uglify']);
+  grunt.registerTask('default', ['compass', 'copy', 'jshint', 'concat', 'uglify', 'template']);
 
 };

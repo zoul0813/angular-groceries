@@ -1,4 +1,4 @@
-/*! Groceries - v0.0.1 - 2013-09-28
+/*! Groceries - v0.0.1 - 2013-10-04
 * Copyright (c) 2013 David Higgins <higginsd@zoulcreations.com>;
  Licensed MIT */
 var pgApp = {
@@ -39,7 +39,7 @@ app.controller('groceryController', function($scope, $route, $routeParams, local
   /** 
    * The main render method
    * Determines the current action and calls the appropriate method 
-   * @protected
+   * @private
    */
   function render() {
     var currentAction = $route.current.action || 'list';
@@ -57,11 +57,25 @@ app.controller('groceryController', function($scope, $route, $routeParams, local
     }
   }
   
+  /** 
+   * Private Methods
+   * @private
+   */ 
   var privateMethods = {
+    /**
+     * Remove
+     * Remove an item from the store
+     */
     remove: function(grocery) {
       localStorageService.remove(grocery.title);
       $scope.groceries = privateMethods.getGroceries();
     },
+    /**
+     * Update
+     * Update an item in the store
+     *
+     * @param {Grocery} grocery - The object to update
+     */
     update: function(grocery) {
       console.log('groceryController.list().update()', grocery);
       var d = localStorageService.get(grocery.title);
@@ -73,17 +87,24 @@ app.controller('groceryController', function($scope, $route, $routeParams, local
       localStorageService.add(grocery.title, grocery);
       $scope.groceries = privateMethods.getGroceries();
     },
+    /**
+     * Save
+     * Save an item to the store
+     * 
+     * @param {string} title - The title of the item to save
+     */
     save: function(title) {
       console.log('groceryController.list().save()', title);
-      var grocery = {
-        title: title,
-        checked: false,
-      };
+      var grocery = new Grocery(title);
       localStorageService.set(title, grocery);
       $scope.groceries.push(grocery);
       $scope.groceries = privateMethods.getGroceries();
       return null;
     },
+    /**
+     * getGroceries
+     * Get all of the items from the store
+     */
     getGroceries: function() {
       var groceries = [];
       var keys = localStorageService.keys();
@@ -95,11 +116,15 @@ app.controller('groceryController', function($scope, $route, $routeParams, local
     }
   }
   
-  /** 
-   * Create
-   * Create new Todo Item
+  /**
+   * Public Methods
+   * @public
    */
   var publicMethods = {
+    /** 
+     * Create
+     * Create new Todo Item
+     */
     create: function() {
       console.log('groceryController.create()');
       $scope.grocery = {};
@@ -108,7 +133,6 @@ app.controller('groceryController', function($scope, $route, $routeParams, local
         localStorageService.add($scope.grocery.title, $scope.grocery.description);
       }
     },
-
     /**
      * View
      * View a specific Todo Entity
@@ -117,7 +141,6 @@ app.controller('groceryController', function($scope, $route, $routeParams, local
      */
     view: function(entityId) {
       console.log('groceryController.view()', entityId);
-      $scope.entityId = entityId;
     },
     /**
      * List
@@ -135,6 +158,10 @@ app.controller('groceryController', function($scope, $route, $routeParams, local
   render(); // always call render!!!
   return publicMethods;
 });
+var Grocery = function(title) {
+  this.title = title;
+  this.checked = false;
+}
 app.config(['$routeProvider', function($routeProvider) {
   console.log('router.config()');
   $routeProvider
