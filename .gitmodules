@@ -1,0 +1,6 @@
+[submodule "libs/angular"]
+        path = libs/angular
+        url = https://github.com/angular/angular.js.git 
+[submodule "libs/angular-local-storage"]
+        path = libs/angular-local-storage 
+        url = https://github.com/grevory/angular-local-storage.git 
