@@ -26,13 +26,32 @@ module.exports = function(grunt) {
         ],
       }
     },
+    ngtemplates: {
+      app: {
+        src: 'views/**/*.html',
+        dest: 'www/js/templates.js',
+        options: {
+          module: 'Grocery',
+          htmlmin: {
+            collapseBooleanAttributes:      false,
+            collapseWhitespace:             true,
+            removeAttributeQuotes:          false,
+            removeComments:                 true, // Only if you don't use comment directives!
+            removeEmptyAttributes:          false,
+            removeRedundantAttributes:      true,
+            removeScriptTypeAttributes:     false,
+            removeStyleLinkTypeAttributes:  false
+          }
+        }
+      }
+    },
     concat: {
       options: {
         banner: '<%= banner %>',
         stripBanners: true
       },
       dist: {
-        src: ['app/**/*.js'],
+        src: ['app/**/*.js', '<%= ngtemplates.app.dest %>'],
         dest: 'www/js/<%= pkg.name %>.js'
       }
     },
@@ -102,9 +121,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-template');
+  grunt.loadNpmTasks('grunt-angular-templates');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task.
-  grunt.registerTask('default', ['compass', 'copy', 'jshint', 'concat', 'uglify', 'template']);
+  grunt.registerTask('default', ['compass', 'copy', 'ngtemplates', 'concat', 'jshint', 'uglify', 'template']);
 
 };

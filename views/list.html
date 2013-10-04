@@ -8,13 +8,13 @@
     <li class="topcoat-list__item">
       <form ng-submit="new_grocery = save(new_grocery)">
         <input type="text" class="topcoat-text-input" placeholder="Grocery..." ng-model="new_grocery" />
-        <button class="topcoat-button">Save</button>
+        <button class="topcoat-button">Add</button>
       </form>
     </li>
     <li class="topcoat-list__item" ng-repeat="grocery in groceries" ng-init="isEdit=false" ng-model="isEdit" ng-click="isEdit=!isEdit" ng-swipe-left="isEdit=!isEdit">
       <label class="topcoat-checkbox">
-        <input type="checkbox" ng-model="grocery.checked" ng-change="update(grocery)" />
-        <div class="topcoat-checkbox__checkmark"></div>
+        <input id="input_add" type="checkbox" ng-model="grocery.checked" ng-change="update(grocery)" style="width: 80%" />
+        <div id="button_add" class="topcoat-checkbox__checkmark" style="width: 18%; margin-left: 1%;"></div>
       </label>
       {{grocery.title}}
       
