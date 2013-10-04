@@ -76,17 +76,23 @@ body {
 .topcoat-list .topcoat-list__item {
   cursor: pointer;
 }
-/* line 16, ../../scss/screen.scss */
+/* line 15, ../../scss/screen.scss */
 .topcoat-list .topcoat-list__item .edit-bar {
   float: right;
 }
+/* line 18, ../../scss/screen.scss */
+.topcoat-list .topcoat-list__item .title {
+  margin-left: 3em;
+  line-height: 2em;
+  display: inline-block;
+}
 
-/* line 23, ../../scss/screen.scss */
+/* line 26, ../../scss/screen.scss */
 #input_add {
   width: 80%;
 }
 
-/* line 27, ../../scss/screen.scss */
+/* line 30, ../../scss/screen.scss */
 #button_add {
   width: 18%;
   margin-left: 1%;

@@ -16,8 +16,7 @@
         <input type="checkbox" ng-model="grocery.checked" ng-change="update(grocery)" />
         <div id="button_add" class="topcoat-checkbox__checkmark" ></div>
       </label>
-      {{grocery.title}}
-      
+      <span class="title">{{grocery.title}}</span>
       <div ng-show="isEdit" class="edit-bar">
         <div class="topcoat-button-bar">
           <div class="topcoat-button-bar__item">

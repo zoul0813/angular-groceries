@@ -12,11 +12,14 @@ body {
 .topcoat-list {
   .topcoat-list__item {
     cursor: pointer;
-    
     .edit-bar {
       float: right;
     }
-    
+    .title {
+      margin-left: 3em;
+      line-height: 2em;
+      display: inline-block;
+    }
   }
 }
 
