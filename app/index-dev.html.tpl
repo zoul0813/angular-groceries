@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html manifest="cache.manifest">
+<html>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
@@ -25,16 +25,6 @@
       <script type="text/javascript" src="<%=script.dest%>"></script>      
     <% }); %>
     <script type="text/javascript">
-      if('applicationCache' in window) {
-        window.addEventListener('load', function(e) {
-          window.applicationCache.addEventListener('updateready', function(e) {
-            if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
-              window.applicationCache.swapCache();
-              window.location.reload();
-            }
-          }, false);
-        }, false);
-      };
       pgApp.initialize();
     </script>
 </body>

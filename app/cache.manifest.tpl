@@ -3,9 +3,6 @@ CACHE MANIFEST
 
 CACHE:
 index.html
-views/list.html
-views/view.html
-views/new.html
 js/Groceries.min.js
 js/angular/angular.min.js
 js/angular/angular-cookies.min.js
@@ -47,3 +44,6 @@ img/search_dark.svg
 img/search_light.svg
 img/spinner.png
 img/spinner2x.png
+
+NETWORK:
+*

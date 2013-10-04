@@ -80,3 +80,14 @@ body {
 .topcoat-list .topcoat-list__item .edit-bar {
   float: right;
 }
+
+/* line 23, ../../scss/screen.scss */
+#input_add {
+  width: 80%;
+}
+
+/* line 27, ../../scss/screen.scss */
+#button_add {
+  width: 18%;
+  margin-left: 1%;
+}
