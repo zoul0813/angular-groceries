@@ -12,22 +12,22 @@ body {
 .topcoat-list {
   .topcoat-list__item {
     cursor: pointer;
+    font-size: 1.5rem;
+    .topcoat-checkbox {
+      line-height: 3rem;
+      input[type=checkbox], .topcoat-checkbox__checkmark {
+        margin-top: 0.5rem;
+      }
+    }
     .edit-bar {
       float: right;
     }
     .title {
-      margin-left: 3em;
-      line-height: 2em;
+      margin-left: 1rem;
+      line-height: 3rem;
       display: inline-block;
     }
   }
 }
 
-#input_add {
-  width: 80%;
-}
-
-#button_add {
-  width: 18%;
-  margin-left: 1%;
-}
+@import "partials/buttons";

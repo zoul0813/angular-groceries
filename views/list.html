@@ -1,6 +1,6 @@
 <div class="topcoat-navigation-bar">
   <div class="topcoat-navigation-bar__item center full">
-    <h1 class="topcoat-navigation-bar__title">List</h1>
+    <h1 class="topcoat-navigation-bar__title">Groceries</h1>
   </div>
 </div>
 <div class="topcoat-list">
@@ -14,15 +14,11 @@
     <li class="topcoat-list__item" ng-repeat="grocery in groceries" ng-init="isEdit=false" ng-model="isEdit" ng-click="isEdit=!isEdit" ng-swipe-left="isEdit=!isEdit">
       <label class="topcoat-checkbox">
         <input type="checkbox" ng-model="grocery.checked" ng-change="update(grocery)" />
-        <div id="button_add" class="topcoat-checkbox__checkmark" ></div>
+        <div class="topcoat-checkbox__checkmark" ></div>
       </label>
       <span class="title">{{grocery.title}}</span>
       <div ng-show="isEdit" class="edit-bar">
-        <div class="topcoat-button-bar">
-          <div class="topcoat-button-bar__item">
-            <button class="topcoat-button-bar__button" ng-click="remove(grocery)">Delete</button>
-          </div>
-        </div>
+        <button class="topcoat-button--cta topcoat_button--cta-delete" ng-click="remove(grocery)">Delete</button>
       </div>
     </li>
   </ul>

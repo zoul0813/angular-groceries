@@ -75,25 +75,48 @@ body {
 /* line 13, ../../scss/screen.scss */
 .topcoat-list .topcoat-list__item {
   cursor: pointer;
+  font-size: 1.5rem;
 }
-/* line 15, ../../scss/screen.scss */
+/* line 16, ../../scss/screen.scss */
+.topcoat-list .topcoat-list__item .topcoat-checkbox {
+  line-height: 3rem;
+}
+/* line 18, ../../scss/screen.scss */
+.topcoat-list .topcoat-list__item .topcoat-checkbox input[type=checkbox], .topcoat-list .topcoat-list__item .topcoat-checkbox .topcoat-checkbox__checkmark {
+  margin-top: 0.5rem;
+}
+/* line 22, ../../scss/screen.scss */
 .topcoat-list .topcoat-list__item .edit-bar {
   float: right;
 }
-/* line 18, ../../scss/screen.scss */
+/* line 25, ../../scss/screen.scss */
 .topcoat-list .topcoat-list__item .title {
-  margin-left: 3em;
-  line-height: 2em;
+  margin-left: 1rem;
+  line-height: 3rem;
   display: inline-block;
 }
 
-/* line 26, ../../scss/screen.scss */
-#input_add {
-  width: 80%;
+/* line 1, ../../scss/partials/_buttons.scss */
+.topcoat_button--cta-delete {
+  border: 1px solid #df0909;
+  background-color: #f62b2b;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f62b2b), to(#d20202));
+  background-image: -webkit-linear-gradient(top, #f62b2b, #d20202);
+  background-image: -moz-linear-gradient(top, #f62b2b, #d20202);
+  background-image: -ms-linear-gradient(top, #f62b2b, #d20202);
+  background-image: -o-linear-gradient(top, #f62b2b, #d20202);
+  background-image: linear-gradient(to bottom, #f62b2b, #d20202);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#f62b2b, endColorstr=#d20202);
 }
-
-/* line 30, ../../scss/screen.scss */
-#button_add {
-  width: 18%;
-  margin-left: 1%;
+/* line 11, ../../scss/partials/_buttons.scss */
+.topcoat_button--cta-delete:hover {
+  border: 1px solid #b30808;
+  background-color: #e40a0a;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#e40a0a), to(#9f0202));
+  background-image: -webkit-linear-gradient(top, #e40a0a, #9f0202);
+  background-image: -moz-linear-gradient(top, #e40a0a, #9f0202);
+  background-image: -ms-linear-gradient(top, #e40a0a, #9f0202);
+  background-image: -o-linear-gradient(top, #e40a0a, #9f0202);
+  background-image: linear-gradient(to bottom, #e40a0a, #9f0202);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#e40a0a, endColorstr=#9f0202);
 }
